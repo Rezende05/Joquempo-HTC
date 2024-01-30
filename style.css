@@ -1,0 +1,173 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.winner-title {
+  width: 430px;
+  height: 74px;
+  background-color: #0099FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 33px;
+  border-radius: 12px 12px 0 0;
+  color: #ffffff;
+}
+
+.scoreboard-box {
+  width: 60%;
+  height: 148px;
+  background-color: #0099FF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 17px;
+}
+
+.player {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.score-player {
+  font-weight: 900;
+  font-size: 104px;
+  color: #0099FF;
+  height: 120px;
+  width: 131px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+}
+
+.separator-score {
+  color: #ffffff;
+  font-size: 58px;
+}
+
+.play-area {
+  margin-top: 2%;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.wrapper-button-move {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+.button-move {
+  width: 220px;
+  height: 80px;
+  color: #ffffff;
+  background-color: #0099FF;
+  border: 1px solid #0099FF;
+  border-radius: 8px;
+  font-size: 44px;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+
+.button-move:hover {
+  background-color: #ffffff;
+  color: #0099FF;
+}
+
+.config-box {
+  display: flex;
+  gap: 100px;
+  margin-top: 22px;
+}
+
+.wrapper-battlefield {
+  width: 100%;
+  height: 100%;
+  background-color: #0099FF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px;
+  border-radius: 17px;
+}
+
+.battlefield {
+  background-color: #DBF1FF;
+  border-radius: 17px;
+  height: 100%;
+  width: 36%;
+}
+
+.battlefield-separator {
+  font-size: 104px;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 720px) { 
+  body {
+    padding: 1%;
+    justify-content: space-evenly;
+  } 
+  .player {
+    display: none;
+  }
+
+  .winner-title {
+    width: 90%;
+  }
+
+  .scoreboard-box {
+    width: 100%;
+  }
+
+  .config-box {
+    gap: 10px;
+  }
+
+  .play-area {
+    flex-direction: column;
+  }
+
+  .wrapper-button-move {
+    flex-direction: row;
+    height: unset;
+  }
+
+  .button-move {
+    font-size: 20px;
+    width: 115px;
+  }
+
+  .battlefield-separator {
+    font-size: 20px;
+  }
+
+  .wrapper-battlefield {
+    padding: 10px;
+  }
+
+  .battlefield {
+    width: 40%;
+  }
+}
