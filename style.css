@@ -116,12 +116,23 @@ body {
   border-radius: 17px;
   height: 100%;
   width: 36%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .battlefield-separator {
   font-size: 104px;
   color: #ffffff;
   font-weight: 900;
+}
+
+.battlefield img {
+width: 80%;
+}
+
+#box-move2 img{
+transform: scaleX(-1);
 }
 
 @media screen and (max-width: 720px) { 
