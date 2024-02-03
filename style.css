@@ -135,6 +135,11 @@ width: 80%;
 transform: scaleX(-1);
 }
 
+.ativo {
+  background-color: red;
+}
+
+
 @media screen and (max-width: 720px) { 
   body {
     padding: 1%;
