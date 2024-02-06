@@ -21,6 +21,7 @@ let movePlayer2 = '';
 let player1Score = 0;
 let player2Score = 0;
 let winner = 0;
+let gameStart = false;
 
 function setWinner() {
   if (movePlayer1 == '' || movePlayer2 == '') {
@@ -67,6 +68,9 @@ function printWinnerName() {
   if (winner == 3) {
     $printWinnerName.innerHTML = 'Empatou';
   }
+  if (winner == 0) {
+    $printWinnerName.innerHTML = 'Jogue';
+  }
 }
 
 function resetBattlefield() {
@@ -84,12 +88,8 @@ function resetPlayerScore() {
   player2Score = 0;
 }
 
-function resetprintWinnerScore() {
-  $printScore1.innerHTML = '00';
-  $printScore2.innerHTML = '00';
-}
-
 function handleMoveStone1() {
+  if (gameStart == false) return;
   $battlefield1.innerHTML =
     '<img src="./img/stone.png" alt="imagem luva pedra" title="imagem luva pedra">';
   movePlayer1 = 'stone';
@@ -105,6 +105,7 @@ function handleMoveStone1() {
 }
 
 function handleMovePaper1() {
+  if (gameStart == false) return;
   $battlefield1.innerHTML =
     '<img src="./img/paper.png" alt="imagem luva papel" title="imagem luva papel">';
   movePlayer1 = 'paper';
@@ -120,6 +121,7 @@ function handleMovePaper1() {
 }
 
 function handleMoveScissors1() {
+  if (gameStart == false) return;
   $battlefield1.innerHTML =
     '<img src="./img/scissors.png" alt="imagem luva tesoura" title="imagem luva tesoura">';
   movePlayer1 = 'scissors';
@@ -135,6 +137,7 @@ function handleMoveScissors1() {
 }
 
 function handleMoveStone2() {
+  if (gameStart == false) return;
   $battlefield2.innerHTML =
     '<img src="./img/stone.png" alt="imagem luva pedra" title="imagem luva pedra">';
   movePlayer2 = 'stone';
@@ -150,6 +153,7 @@ function handleMoveStone2() {
 }
 
 function handleMovePaper2() {
+  if (gameStart == false) return;
   $battlefield2.innerHTML =
     '<img src="./img/paper.png" alt="imagem luva papel" title="imagem luva papel">';
   movePlayer2 = 'paper';
@@ -165,6 +169,7 @@ function handleMovePaper2() {
 }
 
 function handleMoveScissors2() {
+  if (gameStart == false) return;
   $battlefield2.innerHTML =
     '<img src="./img/scissors.png" alt="imagem luva tesoura" title="imagem luva tesoura">';
   movePlayer2 = 'scissors';
@@ -183,25 +188,32 @@ function buttonReset() {
   resetPlayerScore();
   resetBattlefield();
   resetMoveBattlefield();
-  resetprintWinnerScore();
-  $printWinnerName.innerHTML = 'Clique em Iniciar';
-  $buttonStart.classList.remove('ativo');
+  printWinnerScore();
+  printWinnerName();
+  handleToggleGame();
 }
 
-function toggleButtonStart() {
-  $buttonStart.classList.toggle('ativo');
+function handleToggleGame() {
+  if (gameStart == true) {
+    gameStart = false;
+    $buttonStart.textContent = 'Iniciar';
+    $buttonStart.classList.remove('ativo');
+    $printWinnerName.textContent = 'clique em iniciar';
+  } else {
+    gameStart = true;
+    $buttonStart.textContent = 'Pausar';
+    $buttonStart.classList.add('ativo');
+    $printWinnerName.textContent = 'Jogue';
+  }
 }
 
-function start() {
-  $buttonStoneMove1.addEventListener('click', handleMoveStone1);
-  $buttonPaperMove1.addEventListener('click', handleMovePaper1);
-  $buttonScissorsMove1.addEventListener('click', handleMoveScissors1);
+$buttonStoneMove1.addEventListener('click', handleMoveStone1);
+$buttonPaperMove1.addEventListener('click', handleMovePaper1);
+$buttonScissorsMove1.addEventListener('click', handleMoveScissors1);
 
-  $buttonStoneMove2.addEventListener('click', handleMoveStone2);
-  $buttonPaperMove2.addEventListener('click', handleMovePaper2);
-  $buttonScissorsMove2.addEventListener('click', handleMoveScissors2);
-  toggleButtonStart();
-}
+$buttonStoneMove2.addEventListener('click', handleMoveStone2);
+$buttonPaperMove2.addEventListener('click', handleMovePaper2);
+$buttonScissorsMove2.addEventListener('click', handleMoveScissors2);
 
 $buttonReset.addEventListener('click', buttonReset);
-$buttonStart.addEventListener('click', start);
+$buttonStart.addEventListener('click', handleToggleGame);

@@ -137,7 +137,13 @@ transform: scaleX(-1);
 
 .ativo {
   background-color: red;
+  border: 1px solid red;
 }
+
+.ativo:hover{
+  color: red;
+}
+
 
 
 @media screen and (max-width: 720px) { 
