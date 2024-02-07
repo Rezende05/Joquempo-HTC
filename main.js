@@ -190,7 +190,9 @@ function buttonReset() {
   resetMoveBattlefield();
   printWinnerScore();
   printWinnerName();
-  handleToggleGame();
+  $buttonStart.textContent = 'Iniciar';
+  $buttonStart.classList.remove('ativo');
+  $printWinnerName.textContent = 'clique em iniciar';
 }
 
 function handleToggleGame() {
